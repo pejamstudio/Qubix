@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="unguPrimary">#a382ff</color>
+    <color name="colorAccent">#ffffff</color>
+    <color name="warnaPutih">#fcfcfc</color>
+    <color name="warnaHitam">#000000</color>
+    <color name="bg_loading">#55000000</color>
+    <color name="grayBox">#f2f2f2</color>
+    <color name="grayMuda">#dbdbdb</color>
+    <color name="grayText">#6e6e6e</color>
+</resources>

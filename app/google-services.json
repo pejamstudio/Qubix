@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "36170773438",
+    "firebase_url": "https://whitecube-9e38e.firebaseio.com",
+    "project_id": "whitecube-9e38e",
+    "storage_bucket": "whitecube-9e38e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:36170773438:android:62eda6e55ae58d01b7bfef",
+        "android_client_info": {
+          "package_name": "com.example.whitecube"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "36170773438-mm3pmf7s56bc0msvlp4885q9j4d1o2il.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.whitecube",
+            "certificate_hash": "3d61a5c343464b018d671b30f3f04918d831f683"
+          }
+        },
+        {
+          "client_id": "36170773438-hqs99l65el2o7njlbmgqemqk12c0p32b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaeSUHJYOJkvzTqPgV7giCVi5L7QLo9mA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "36170773438-hqs99l65el2o7njlbmgqemqk12c0p32b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
