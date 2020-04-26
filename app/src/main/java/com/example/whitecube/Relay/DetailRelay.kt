@@ -35,6 +35,7 @@ class DetailRelay : AppCompatActivity() {
         }
 
         btn_back1.setOnClickListener {
+            clearSP()
             finish()
         }
 
@@ -55,6 +56,10 @@ class DetailRelay : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        clearSP()
+    }
     override fun onResume() {
         super.onResume()
         getContentRelay(SP.getString("idRelay","").toString())
@@ -130,6 +135,11 @@ class DetailRelay : AppCompatActivity() {
                             }else{
                                 ketRemPen.text = "Tidak Aktif"
                             }
+                            if(relay.status == "1"){
+                                switchRelay.isChecked = true
+                            }else{
+                                switchRelay.isChecked = false
+                            }
                         }else{
                             switchRelay.visibility = View.GONE
                             goRemote.visibility = View.VISIBLE
@@ -146,6 +156,7 @@ class DetailRelay : AppCompatActivity() {
                             switchRelay.isChecked == false
                         }
                         namaRelay.text = relay.namarelay
+                        namaRelayHeader.text = relay.namarelay
                         jenisrelay.text = relay.jenisrelay
                         tempatrelay.text = relay.tempatrelay
 
@@ -156,5 +167,19 @@ class DetailRelay : AppCompatActivity() {
 
     }
 
+    private fun clearSP(){
+        val editor = SP.edit()
+        editor.remove("idRelay")
+        editor.remove("relayMode")
+        editor.remove("namaRelay")
+        editor.remove("jenisRelay")
+        editor.remove("tempatRelay")
+        editor.remove("statusRelay")
+        editor.remove("penjadwalanRelay")
+        editor.remove("jadwalHidup")
+        editor.remove("jadwalMati")
+        editor.remove("irKode")
+        editor.commit()
+    }
 
 }

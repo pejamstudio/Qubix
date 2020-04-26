@@ -8,11 +8,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.whitecube.Adapter.RelayAdapter
+import com.example.whitecube.CameraScan
 import com.example.whitecube.GantiDevice.GantiDevice
 import com.example.whitecube.GantiDevice.OnItemClickListener
 import com.example.whitecube.GantiDevice.PilihDevice
@@ -30,6 +33,9 @@ import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
 
+
+    private lateinit var namaDevice : TextView
+    private lateinit var btn_add : ImageView
     private lateinit var tambahPerangkat : ImageView
     private lateinit var rvRelay : RecyclerView
     private lateinit var SP : SharedPreferences
@@ -49,6 +55,27 @@ class HomeFragment : Fragment() {
         rvRelay = view.findViewById(R.id.rvRelay)
         relays = arrayListOf()
         tambahPerangkat = view.findViewById(R.id.tambahPerangkat)
+        btn_add = view.findViewById(R.id.btn_add)
+        namaDevice = view.findViewById(R.id.namaDevice)
+
+        // set content
+        namaDevice.text = SP.getString("namaDevice","").toString()
+        if(SP.getString("modeUser","").toString()=="1"){
+            tambahPerangkat.visibility = View.VISIBLE
+        }else{
+            tambahPerangkat.visibility = View.GONE
+        }
+
+        //end set content
+
+        namaDevice.setOnClickListener {
+            startActivity(Intent(view.context,GantiDevice::class.java))
+            activity!!.finish()
+        }
+
+        btn_add.setOnClickListener {
+            startActivity(Intent(view.context,CameraScan::class.java))
+        }
 
         tambahPerangkat.setOnClickListener {
             startActivity(Intent(view.context,AddRelay::class.java))
@@ -62,9 +89,11 @@ class HomeFragment : Fragment() {
         return view
     }
 
+
+
+
     private fun showRelay(){
         val query = refrelay.orderByChild("iddevice").equalTo(SP.getString("idDevice","").toString())
-        Toast.makeText(activity!!.applicationContext,SP.getString("idDevice","").toString(),Toast.LENGTH_LONG).show()
         query.addValueEventListener(object : ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
 

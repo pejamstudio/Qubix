@@ -56,6 +56,9 @@ class AddRelay : AppCompatActivity() {
                 .setPositiveButton("Iya", object: DialogInterface.OnClickListener {
                     override fun onClick(dialog: DialogInterface?, id: Int) {
                         finish()
+                        val editor = SP.edit()
+                        editor.remove("irKode")
+                        editor.commit()
                     }
                 })
 
@@ -83,21 +86,11 @@ class AddRelay : AppCompatActivity() {
     }
     override fun onBackPressed() {
         super.onBackPressed()
-        val alertDialog = AlertDialog.Builder(this)
-        alertDialog.setTitle("Tambah Perangkat")
-        alertDialog.setMessage("Data tidak akan tersimpan. Apakah anda yakin ingin keluar ?")
-            .setCancelable(false)
-            .setPositiveButton("Iya", object: DialogInterface.OnClickListener {
-                override fun onClick(dialog: DialogInterface?, id: Int) {
-                    finish()
-                }
-            })
 
-            .setNegativeButton("Tidak", object: DialogInterface.OnClickListener{
-                override fun onClick(dialog: DialogInterface?, id: Int) {
-                    dialog?.cancel()
-                }
-            }).create().show()
+        val editor = SP.edit()
+        editor.remove("irKode")
+        editor.commit()
+
     }
 
 

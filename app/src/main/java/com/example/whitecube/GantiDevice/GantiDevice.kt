@@ -1,6 +1,7 @@
 package com.example.whitecube.GantiDevice
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +9,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.whitecube.MainActivity
 import com.example.whitecube.Model.DeviceModel
 import com.example.whitecube.Model.ModeUserModel
 import com.example.whitecube.Model.UserModel
@@ -27,7 +29,21 @@ class GantiDevice : AppCompatActivity(),OnItemClickListener {
 
     override fun onItemClicked(device: PilihDevice) {
         changeDevice(device.id)
-        finish()
+        val backgrond = object : Thread(){
+            override fun run() {
+                try {
+                    java.lang.Thread.sleep(1000)
+                    //tambah loading
+                    finish()
+                    startActivity(Intent(applicationContext,MainActivity::class.java))
+                } catch (e: Exception){
+                    e.printStackTrace()
+                }
+            }
+        }
+
+        backgrond.start()
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -105,6 +121,18 @@ class GantiDevice : AppCompatActivity(),OnItemClickListener {
                 }
             }
         })
+    }
+    private fun clearSP(){
+        val editor = SP.edit()
+        editor.remove("idDevice")
+        editor.remove("namaDevice")
+        editor.remove("longitude")
+        editor.remove("atitude")
+        editor.remove("readMode")
+        editor.remove("read")
+        editor.remove("write")
+        editor.remove("userDevice")
+        editor.apply()
     }
 
     private fun getModeUser (idDevice: String) {

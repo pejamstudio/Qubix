@@ -50,9 +50,9 @@ class EditRelay : AppCompatActivity() {
         }
 
         btn_save.setOnClickListener {
-            if(namaRelay.text.toString().equals("")){
-                namaRelay.error = "Masukkan nama relay"
-                namaRelay.requestFocus()
+            if(namarelay.text.toString().equals("")){
+                namarelay.error = "Masukkan nama relay"
+                namarelay.requestFocus()
             }else{
                 saveUpdateRelay()
             }

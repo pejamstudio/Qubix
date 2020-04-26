@@ -65,7 +65,7 @@ class SayaFragment : Fragment(){
 
 
         add.setOnClickListener {
-            startActivity(Intent(view.context,GantiDevice::class.java))
+            startActivity(Intent(view.context,CameraScan::class.java))
         }
         editProfil.setOnClickListener {
             startActivity(Intent(view.context,EditProfil::class.java))
