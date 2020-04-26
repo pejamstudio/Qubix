@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -12,16 +13,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EditProfil.EditProfil"></activity>
+        <activity android:name=".Relay.ReadIrRemote"></activity>
+        <activity android:name=".Relay.AddRelay" />
+        <activity android:name=".Relay.EditRelay" />
+        <activity android:name=".Relay.DetailRelay" />
+        <activity android:name=".GantiDevice.GantiDevice" />
+        <activity android:name=".PengaturanDevice.BerbagiDevice" />
+        <activity android:name=".PengaturanDevice.EditLokasiDevice" />
+        <activity android:name=".PengaturanDevice.EditNamaDevice" />
+        <activity android:name=".PengaturanDevice.PengaturanDevice" />
+        <activity android:name=".EditProfil.EditNama" />
+        <activity android:name=".EditProfil.EditProfil" />
         <activity android:name=".RegisterUser" />
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".UniquePassword" />
         <activity android:name=".CameraScan" />
         <activity android:name=".QRGenerator" />
         <activity android:name=".QRscanner" />
         <activity android:name=".MenuQRCode" />
         <activity android:name=".ProfilActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

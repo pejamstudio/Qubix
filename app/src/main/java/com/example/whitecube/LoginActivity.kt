@@ -11,6 +11,8 @@ import android.view.ActionMode
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import com.example.whitecube.Model.DeviceModel
+import com.example.whitecube.Model.ModeUserModel
 import com.example.whitecube.Model.UserModel
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -27,6 +29,8 @@ class LoginActivity : AppCompatActivity() {
 
 
     private lateinit var SP : SharedPreferences
+    private lateinit var refmode : DatabaseReference
+    private lateinit var refdevice : DatabaseReference
     private lateinit var ref : DatabaseReference
     private lateinit var auth: FirebaseAuth
     lateinit var mGoogleSignInClient : GoogleSignInClient
@@ -38,12 +42,17 @@ class LoginActivity : AppCompatActivity() {
         bg_loding.visibility = View.GONE
         SP = getSharedPreferences("WhiteCube", Context.MODE_PRIVATE)
         auth = FirebaseAuth.getInstance()
+        refdevice = FirebaseDatabase.getInstance().getReference("device")
+        refmode = FirebaseDatabase.getInstance().getReference("modeuser")
         ref = FirebaseDatabase.getInstance().getReference("user")
+        cekLoginStatus()
         createRequest()
         findViewById<TextView>(R.id.signin_google).setOnClickListener {
             signIn()
         }
     }
+
+
 
     private fun createRequest(){
         // Configure Google Sign In
@@ -92,7 +101,6 @@ class LoginActivity : AppCompatActivity() {
 
                     loding.visibility = View.GONE
                     bg_loding.visibility = View.GONE
-                    val user = auth.currentUser
                     cekEmail(auth.currentUser!!.email.toString())
                     //
 
@@ -104,15 +112,16 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun cekEmail(email : String){
-        val query = FirebaseDatabase.getInstance().getReference("pengguna").orderByChild("email").equalTo(email)
+        val query = ref.orderByChild("email").equalTo(email)
         query.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
 
             }
             override fun onDataChange(email: DataSnapshot) {
                 if(email.exists()){
-                    getProfilContent()
+                    finish()
                     startActivity(Intent(applicationContext,MainActivity::class.java))
+                    getProfilContent()
                 }else{
                     startActivity(Intent(applicationContext,RegisterUser::class.java))
                 }
@@ -134,15 +143,95 @@ class LoginActivity : AppCompatActivity() {
                             val data = c.getValue(UserModel::class.java)
                             val editor = SP.edit()
                             editor.putString("id",data!!.id)
-                            editor.putString("nama", data!!.nama)
-                            editor.putString("nama", data!!.email)
+                            editor.putString("nama", data.nama)
+                            editor.putString("email", data.email)
                             editor.apply()
-
+                            getModeData(data.id)
                         }
-                    }
 
+                    }
                 }
             })
+        }
+    }
+
+    private fun getModeData(idUser: String){
+        val query = refmode.orderByChild("iduser").limitToFirst(1).equalTo(idUser)
+
+        query.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onCancelled(p0: DatabaseError) {
+            }
+
+            override fun onDataChange(akun: DataSnapshot) {
+                if(akun.exists()){
+                    for(c in  akun.children){
+                        val data = c.getValue(ModeUserModel::class.java)
+                        val editor = SP.edit()
+                        editor.putString("idDevice",data!!.iddevice)
+                        editor.putString("modeUser", data.mode)
+                        editor.apply()
+                        getDeviceData(data.iddevice)
+                    }
+
+                }else{
+                    val editor = SP.edit()
+                    editor.putString("idDevice","")
+                    editor.putString("modeUser","")
+                    editor.putString("namaDevice", "")
+                    editor.putString("longitude", "")
+                    editor.putString("atitude", "")
+                    editor.putString("readMode", "")
+                    editor.putString("read", "")
+                    editor.putString("write", "")
+                    editor.putString("userDevice", "")
+                    editor.apply()
+
+                }
+            }
+        })
+    }
+    private fun getDeviceData(idDevice : String){
+        val query = refdevice.orderByChild("id").equalTo(idDevice)
+
+        query.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onCancelled(p0: DatabaseError) {
+            }
+
+            override fun onDataChange(akun: DataSnapshot) {
+                if(akun.exists()){
+                    for(c in  akun.children){
+                        val data = c.getValue(DeviceModel::class.java)
+                        val editor = SP.edit()
+                        editor.putString("namaDevice", data!!.nama)
+                        editor.putString("longitude", data.longitude)
+                        editor.putString("atitude", data.atitude)
+                        editor.putString("readMode", data.readmode)
+                        editor.putString("read",data.read)
+                        editor.putString("write", data.write)
+                        editor.putString("userDevice", data.user)
+                        editor.apply()
+
+                    }
+
+                }else{
+                    val editor = SP.edit()
+                    editor.putString("namaDevice", "")
+                    editor.putString("longitude", "")
+                    editor.putString("atitude", "")
+                    editor.putString("readMode", "")
+                    editor.putString("read", "")
+                    editor.putString("write", "")
+                    editor.putString("userDevice", "")
+                    editor.apply()
+                }
+            }
+        })
+    }
+
+    private fun cekLoginStatus(){
+        if(SP.getString("email","").toString() != ""){
+            finish()
+            startActivity(Intent(this,MainActivity::class.java))
         }
     }
 }

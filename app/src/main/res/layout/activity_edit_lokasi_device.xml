@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".PengaturanDevice.EditLokasiDevice">
+    <RelativeLayout
+        android:id="@+id/header"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/warnaPutih"
+        >
+
+        <TextView
+            android:id="@+id/headerNama"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Atur Lokasi Device"
+            android:textSize="20sp"
+            android:textColor="@color/warnaHitam"
+            />
+        <ImageView
+            android:layout_centerVertical="true"
+            android:id="@+id/btn_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_navigate_before_black_24dp"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_centerVertical="true"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/ic_place_black_24dp"/>
+            <TextView
+                android:layout_margin="10dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/warnaHitam"
+                android:textSize="16sp"
+                android:text="Pastikan anda berada dekat dengan device anda untuk mengatur lokasi"/>
+        </LinearLayout>
+        <Button
+            android:id="@+id/btn_set"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/box_gray"
+            android:layout_margin="15dp"
+            android:layout_alignParentBottom="true"
+            android:text="Atur lokasi"
+            />
+    </RelativeLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

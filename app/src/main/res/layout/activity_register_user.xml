@@ -10,11 +10,12 @@
         android:id="@+id/header"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="45dp"
         android:background="@color/warnaPutih"
         >
 
         <TextView
+            android:id="@+id/headerNama"
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -23,6 +24,7 @@
             android:textColor="@color/warnaHitam"
             />
         <ImageView
+            android:layout_centerVertical="true"
             android:id="@+id/btn_back"
             android:layout_width="40dp"
             android:layout_height="40dp"
@@ -37,6 +39,7 @@
         android:paddingLeft="15dp"
         >
         <TextView
+            android:id="@+id/labelNama"
             android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -51,6 +54,7 @@
             android:layout_height="35dp"
             android:background="@drawable/box_white"/>
         <TextView
+            android:id="@+id/nb"
             android:layout_marginTop="5dp"
             android:text="Masukkan nama lengkap anda dengan benar"
             android:layout_width="wrap_content"

@@ -10,7 +10,7 @@
     <RelativeLayout
         android:background="@color/warnaPutih"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="45dp"
         >
 
         <TextView
@@ -19,9 +19,9 @@
             android:layout_height="match_parent"
             android:text="Edit Profil"
             android:textSize="20dp"
-            android:textStyle="bold"
             android:textColor="@color/warnaHitam"/>
         <ImageView
+            android:layout_centerVertical="true"
             android:focusable="true"
             android:clickable="true"
             android:foreground="?attr/selectableItemBackground"
@@ -40,12 +40,13 @@
     android:padding="10dp"
     android:background="@color/warnaPutih"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="50dp">
     <TextView
+        android:layout_centerVertical="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Nama"
-        android:textSize="19sp"
+        android:textSize="18sp"
         android:textColor="@color/warnaHitam"/>
     <TextView
         android:layout_centerVertical="true"
@@ -71,12 +72,13 @@
         android:padding="10dp"
         android:background="@color/warnaPutih"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="50dp">
         <TextView
+            android:layout_centerVertical="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Email"
-            android:textSize="19sp"
+            android:textSize="18sp"
             android:textColor="@color/warnaHitam"/>
         <TextView
             android:layout_centerVertical="true"
@@ -85,7 +87,6 @@
             android:layout_height="wrap_content"
             android:text="iqbalul.hidayat2801@gmail.com"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="35dp"
             android:textSize="16sp"
             android:textColor="@color/grayText"/>
     </RelativeLayout>
