@@ -37,7 +37,17 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:background="@color/unguPrimary"
-        />
+        >
+        <TextView
+            android:id="@+id/suhu"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="25*"
+            android:textColor="@color/warnaHitam"
+            android:textSize="35dp"
+            />
+    </RelativeLayout>
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
