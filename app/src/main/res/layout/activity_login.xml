@@ -7,6 +7,39 @@
     tools:context=".LoginRegister.LoginActivity"
     android:background="@color/unguPrimary">
 
+    <ImageView
+        android:id="@+id/gambar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/signin_google"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@drawable/login_main"
+        />
+    <TextView
+        android:id="@+id/text1"
+        app:layout_constraintTop_toBottomOf="@+id/gambar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintVertical_chainStyle="packed"
+        android:textColor="@color/warnaPutih"
+        android:textSize="24sp"
+        android:text="Get Ready"/>
+    <TextView
+        android:id="@+id/text2"
+        app:layout_constraintTop_toBottomOf="@+id/text1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/signin_google"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/warnaPutih"
+        android:textSize="20sp"
+        android:text="Qubix Smart Relay System"/>
     <TextView
         android:id="@+id/signin_google"
         android:focusable="true"

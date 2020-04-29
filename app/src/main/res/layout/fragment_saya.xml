@@ -12,9 +12,10 @@
         <ImageView
             android:id="@+id/btn_add2"
             android:layout_margin="5dp"
+            android:padding="4dp"
             android:layout_width="45dp"
             android:layout_height="match_parent"
-            android:src="@drawable/ic_add"
+            android:src="@drawable/scan"
             android:layout_alignParentRight="true"/>
     </RelativeLayout>
     <RelativeLayout
@@ -50,6 +51,7 @@
         <TextView
             android:id="@+id/emailUser"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="25dp"
             android:layout_below="@+id/namaUser"
             android:layout_toRightOf="@+id/fotoUser"
             android:layout_width="match_parent"
@@ -67,7 +69,10 @@
             android:src="@drawable/ic_navigate_next_black_24dp"/>
     </RelativeLayout>
     <TextView
-        android:padding="5dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingRight="5dp"
+        android:paddingLeft="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/grayBox"
@@ -121,7 +126,10 @@
             />
     </RelativeLayout>
     <TextView
-        android:padding="5dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingRight="5dp"
+        android:paddingLeft="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/grayBox"
@@ -151,7 +159,10 @@
             />
     </RelativeLayout>
     <TextView
-        android:padding="5dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingRight="5dp"
+        android:paddingLeft="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/grayBox"
@@ -185,7 +196,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        android:text="version 1.0.0"/>
+        android:text="Qubix version 1.0.0"/>
     <Button
         android:id="@+id/btn_logout"
         android:layout_marginTop="25dp"

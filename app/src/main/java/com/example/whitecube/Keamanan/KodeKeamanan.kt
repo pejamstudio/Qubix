@@ -70,7 +70,8 @@ class KodeKeamanan : AppCompatActivity() {
 
         if(tipe != "kodekeamanan"){
             biometricPrompt.authenticate(promptInfo)
-            gantiAkun.visibility = View.INVISIBLE
+            gantiAkun.visibility = View.VISIBLE
+            labelKode.text = "Masukkan kode keamanan"
         }
 
 

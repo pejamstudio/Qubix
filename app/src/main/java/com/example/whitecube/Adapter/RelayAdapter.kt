@@ -51,19 +51,19 @@ class RelayAdapter(val context: Context, val List : ArrayList<RelayList>) :
 
         fun bind(list: RelayList, context: Context) {
             if(list.jenisrelay == "Lampu"){
-                jenisRelay.setImageResource(R.drawable.ic_check)
+                jenisRelay.setImageResource(R.drawable.lampu)
             }else if(list.jenisrelay == "Kipas Angin"){
-                jenisRelay.setImageResource(R.drawable.ic_place_black_24dp)
+                jenisRelay.setImageResource(R.drawable.kipas)
             }else if(list.jenisrelay == "AC"){
-                jenisRelay.setImageResource(R.drawable.ic_person_black_24dp)
+                jenisRelay.setImageResource(R.drawable.ac)
             }else if(list.jenisrelay == "TV"){
-                jenisRelay.setImageResource(R.drawable.ic_home_black_24dp)
+                jenisRelay.setImageResource(R.drawable.tv)
             }else if(list.jenisrelay == "Kulkas"){
-                jenisRelay.setImageResource(R.drawable.ic_expand_more_black_24dp)
+                jenisRelay.setImageResource(R.drawable.kulkas)
             }else if(list.jenisrelay == "Pompa Air"){
-                jenisRelay.setImageResource(R.drawable.ic_mode_edit_black_24dp)
+                jenisRelay.setImageResource(R.drawable.pompa)
             }else{
-                jenisRelay.setImageResource(R.drawable.ic_add)
+                jenisRelay.setImageResource(R.drawable.lainnya)
             }
 
             if(list.relaymode == "1"){

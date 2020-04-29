@@ -20,6 +20,7 @@
             android:layout_height="match_parent">
             <ImageView
                 android:layout_marginLeft="5dp"
+                android:padding="9dp"
                 android:id="@+id/gambarJenis"
                 android:layout_centerVertical="true"
                 android:layout_width="75dp"

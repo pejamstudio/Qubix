@@ -16,15 +16,25 @@
             android:layout_height="0dp"
             android:layout_weight="3"
             />
-        <TextView
+        <RelativeLayout
             android:id="@+id/tv_scan"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:background="@color/warnaPutih"
-            android:gravity="center"
-            android:textSize="18sp"
-            />
+            >
+            <TextView
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/scan"
+                android:text="Scan kode QR untuk menambah device"
+                android:textSize="18sp"
+                android:drawablePadding="12dp"
+                android:textColor="@color/warnaHitam"
+                />
+        </RelativeLayout>
     </LinearLayout>
 
 

@@ -191,7 +191,7 @@ class CameraScan : AppCompatActivity() {
                 override fun run() {
                     try {
                         java.lang.Thread.sleep(500)
-                        //tambah loading
+
                         startActivity(Intent(applicationContext,MainActivity::class.java))
                         finish()
                     } catch (e: Exception){

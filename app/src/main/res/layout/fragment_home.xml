@@ -36,14 +36,18 @@
             />
         <ImageView
             android:id="@+id/btn_add"
+            android:padding="4dp"
             android:layout_margin="5dp"
             android:layout_width="45dp"
             android:layout_height="match_parent"
-            android:src="@drawable/ic_add"
+            android:src="@drawable/scan"
             android:layout_alignParentRight="true"/>
     </RelativeLayout>
     <RelativeLayout
         android:visibility="gone"
+        android:focusable="true"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
         android:gravity="center"
         android:id="@+id/deviceTidakAda"
         android:layout_width="match_parent"
@@ -51,19 +55,22 @@
         <ImageView
             android:layout_centerHorizontal="true"
             android:id="@+id/logo"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
             android:src="@drawable/ic_add"
             />
         <TextView
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:gravity="center"
             android:layout_marginTop="15dp"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/logo"
-            android:textSize="22sp"
+            android:textSize="18sp"
             android:textColor="@color/warnaHitam"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Klik Untuk Tambahkan Device"
+            android:text="Tidak ada device, Klik Untuk Tambahkan Device"
             />
     </RelativeLayout>
     <ScrollView

@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -32,8 +33,8 @@ class GantiDevice : AppCompatActivity(),OnItemClickListener {
         val backgrond = object : Thread(){
             override fun run() {
                 try {
-                    java.lang.Thread.sleep(1000)
-                    //tambah loading
+                    java.lang.Thread.sleep(500)
+
                     startActivity(Intent(applicationContext,MainActivity::class.java))
                     finish()
                 } catch (e: Exception){

@@ -8,12 +8,14 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo_apk"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Keamanan.EditKodeKeamanan2"></activity>
+        <activity android:name=".TentangAplikasi"></activity>
+        <activity android:name=".LoginRegister.LoginActivity" />
+        <activity android:name=".Keamanan.EditKodeKeamanan2" />
         <activity android:name=".Keamanan.EditKodeKeamanan" />
         <activity android:name=".ProfilActivity" />
         <activity android:name=".LoginRegister.RegisterUserKode2" />
@@ -36,7 +38,7 @@
         <activity android:name=".QRscanner" />
         <activity android:name=".MenuQRCode" />
         <activity android:name=".Keamanan.KodeKeamanan" />
-        <activity android:name=".LoginRegister.LoginActivity">
+        <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

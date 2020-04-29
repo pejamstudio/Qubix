@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">WhiteCube</string>
+    <string name="app_name">Qubix</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tentang">Qubix merupakan smart relay yang kami coba produksi secara masal. Pada umumnya smart relay diketahui sebagai alat yang dapat di program oleh bahasa tertentu yang biasa digunakan pada proses automasi. Disebut smart relay karena ukurannya yang relative kecil, namun memiliki kemampuan kendali cukup tinggi untuk pada suatu rangkaian control. Tujuan dibuatnya Qubix adalah untuk menggantikan logika pengerjaan sirkuit  control relay yang biasanya dilakukan dengan instalasi langsung. Dengan smart relay, rangkaian control cukup dibuat softwarenya saja.</string>
 </resources>

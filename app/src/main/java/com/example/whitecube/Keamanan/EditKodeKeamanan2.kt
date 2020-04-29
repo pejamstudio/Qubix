@@ -34,6 +34,7 @@ class EditKodeKeamanan2 : AppCompatActivity() {
 
         //set konten
         textHeader.text = "Konfirmasi Kode"
+        labelKode.text = "Masukkan konfirmasi kode keamanan"
 
         satu.setOnClickListener {setKode("1") }
         dua.setOnClickListener {setKode("2") }

@@ -19,6 +19,7 @@ import com.example.whitecube.Keamanan.KodeKeamanan
 import com.example.whitecube.LoginRegister.LoginActivity
 import com.example.whitecube.PengaturanDevice.PengaturanDevice
 import com.example.whitecube.R
+import com.example.whitecube.TentangAplikasi
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import de.hdodenhof.circleimageview.CircleImageView
@@ -77,7 +78,7 @@ class SayaFragment : Fragment(){
             startActivity(Intent(view.context,PengaturanDevice::class.java))
         }
         tentang.setOnClickListener {
-
+            startActivity(Intent(view.context,TentangAplikasi::class.java))
         }
         pengaturan.setOnClickListener {
             val intent = Intent(view.context,KodeKeamanan::class.java)
@@ -121,24 +122,5 @@ class SayaFragment : Fragment(){
 
 
 
-//    private fun realTime(){
-//        val query = ref.orderByChild("email").equalTo(auth.currentUser!!.email.toString())
-//
-//        query.addValueEventListener(object : ValueEventListener {
-//            override fun onCancelled(p0: DatabaseError) {
-//                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-//            }
-//
-//            override fun onDataChange(akun: DataSnapshot) {
-//                if(akun.exists()){
-//                    for(c in  akun.children){
-//                        val data = c.getValue(UserModel::class.java)
-//                        nama.text = data!!.nama
-//                        email.text = data.email
-//                    }
-//
-//                }
-//            }
-//        })
-//    }
+
 }
