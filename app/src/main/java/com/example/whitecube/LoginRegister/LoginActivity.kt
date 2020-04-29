@@ -1,19 +1,19 @@
-package com.example.whitecube
+package com.example.whitecube.LoginRegister
 
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.util.Log
-import android.view.ActionMode
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import com.example.whitecube.Keamanan.KodeKeamanan
+import com.example.whitecube.MainActivity
 import com.example.whitecube.Model.DeviceModel
 import com.example.whitecube.Model.ModeUserModel
 import com.example.whitecube.Model.UserModel
+import com.example.whitecube.R
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -22,7 +22,6 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.activity_camera_scan.*
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
@@ -120,14 +119,22 @@ class LoginActivity : AppCompatActivity() {
             override fun onDataChange(email: DataSnapshot) {
                 if(email.exists()){
                     finish()
-                    startActivity(Intent(applicationContext,MainActivity::class.java))
                     getProfilContent()
+                    val intent = Intent(applicationContext,KodeKeamanan::class.java)
+                    intent.putExtra("tipe","main")
+                    startActivity(intent)
                 }else{
-                    startActivity(Intent(applicationContext,RegisterUser::class.java))
+                    finish()
+                    val intent = Intent(applicationContext, RegisterUser::class.java)
+
+                    intent.putExtra("nama","")
+                    startActivity(intent)
                 }
             }
         })
     }
+
+
 
     private fun getProfilContent(){
         if(auth.currentUser != null){
@@ -145,6 +152,7 @@ class LoginActivity : AppCompatActivity() {
                             editor.putString("id",data!!.id)
                             editor.putString("nama", data.nama)
                             editor.putString("email", data.email)
+                            editor.putString("kodeKeamanan", data.kodekeamanan)
                             editor.apply()
                             getModeData(data.id)
                         }
@@ -230,8 +238,10 @@ class LoginActivity : AppCompatActivity() {
 
     private fun cekLoginStatus(){
         if(SP.getString("email","").toString() != ""){
+            val intent = Intent(this,KodeKeamanan::class.java)
+            intent.putExtra("tipe","main")
+            startActivity(intent)
             finish()
-            startActivity(Intent(this,MainActivity::class.java))
         }
     }
 }

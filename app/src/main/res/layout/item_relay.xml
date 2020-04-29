@@ -61,19 +61,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <ImageView
+                    android:id="@+id/labelSwitchOrRemote"
                     android:layout_margin="10dp"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:src="@drawable/ic_power_settings_new_black_24dp"/>
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_settings_remote_black_24dp"/>
             </RelativeLayout>
-            <Switch
-                android:id="@+id/switchRelay"
-                android:layout_marginRight="15dp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                />
+
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 </RelativeLayout>

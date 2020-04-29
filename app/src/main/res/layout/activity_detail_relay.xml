@@ -17,7 +17,6 @@
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Nama Relay"
             android:textSize="20dp"
             android:textColor="@color/warnaHitam"/>
         <ImageView
@@ -51,6 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <ImageView
+                    android:visibility="gone"
                     android:focusable="true"
                     android:clickable="true"
                     android:foreground="?attr/selectableItemBackground"
@@ -60,6 +60,7 @@
                     android:layout_height="match_parent"
                     android:src="@drawable/ic_power_settings_new_black_24dp"/>
                 <Switch
+                    android:visibility="gone"
                     android:id="@+id/switchRelay"
                     android:thumb="@drawable/round_thunb"
                     android:track="@drawable/round_track"

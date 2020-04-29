@@ -34,8 +34,8 @@ class GantiDevice : AppCompatActivity(),OnItemClickListener {
                 try {
                     java.lang.Thread.sleep(1000)
                     //tambah loading
-                    finish()
                     startActivity(Intent(applicationContext,MainActivity::class.java))
+                    finish()
                 } catch (e: Exception){
                     e.printStackTrace()
                 }
@@ -44,6 +44,13 @@ class GantiDevice : AppCompatActivity(),OnItemClickListener {
 
         backgrond.start()
 
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+
+        startActivity(Intent(applicationContext,MainActivity::class.java))
+        finish()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

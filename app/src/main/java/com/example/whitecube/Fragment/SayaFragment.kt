@@ -15,16 +15,13 @@ import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.whitecube.CameraScan
 import com.example.whitecube.EditProfil.EditProfil
-import com.example.whitecube.GantiDevice.GantiDevice
-import com.example.whitecube.LoginActivity
-import com.example.whitecube.Model.UserModel
+import com.example.whitecube.Keamanan.KodeKeamanan
+import com.example.whitecube.LoginRegister.LoginActivity
 import com.example.whitecube.PengaturanDevice.PengaturanDevice
 import com.example.whitecube.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import de.hdodenhof.circleimageview.CircleImageView
-import kotlinx.android.synthetic.main.activity_camera_scan.*
-import kotlinx.android.synthetic.main.activity_profil.*
 import kotlinx.android.synthetic.main.fragment_saya.*
 
 class SayaFragment : Fragment(){
@@ -41,6 +38,7 @@ class SayaFragment : Fragment(){
     private lateinit var nama : TextView
     private lateinit var email : TextView
     private lateinit var labelPengaturanDevice: TextView
+    private lateinit var tambahDevice: RelativeLayout
     private lateinit var foto : CircleImageView
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -59,13 +57,18 @@ class SayaFragment : Fragment(){
         email = view.findViewById(R.id.emailUser)
         foto = view.findViewById(R.id.fotoUser)
         add = view.findViewById(R.id.btn_add2)
+        tambahDevice = view.findViewById(R.id.tambahDevice)
         labelPengaturanDevice = view.findViewById(R.id.labelPengaturanDevice)
 
         setProfilContent()
 
-
+        tambahDevice.setOnClickListener {
+            startActivity(Intent(view.context,CameraScan::class.java))
+            activity!!.finish()
+        }
         add.setOnClickListener {
             startActivity(Intent(view.context,CameraScan::class.java))
+            activity!!.finish()
         }
         editProfil.setOnClickListener {
             startActivity(Intent(view.context,EditProfil::class.java))
@@ -77,11 +80,13 @@ class SayaFragment : Fragment(){
 
         }
         pengaturan.setOnClickListener {
-
+            val intent = Intent(view.context,KodeKeamanan::class.java)
+            intent.putExtra("tipe","kodekeamanan")
+            startActivity(intent)
         }
         logout.setOnClickListener {
             auth.signOut()
-            startActivity(Intent(view.context,LoginActivity::class.java))
+            startActivity(Intent(view.context, LoginActivity::class.java))
             clearSP()
             activity!!.finish()
         }
@@ -94,6 +99,9 @@ class SayaFragment : Fragment(){
         nama.text = SP.getString("nama","").toString()
         email.text = SP.getString("email","").toString()
         Glide.with(this).load(auth.currentUser!!.photoUrl.toString()).into(foto)
+        if(SP.getString("idDevice","").toString() == ""){
+            editDevice.visibility = View.GONE
+        }
     }
 
     private fun clearSP(){
@@ -107,6 +115,7 @@ class SayaFragment : Fragment(){
         editor.putString("lokasiDevice", "")
         editor.putString("longitude", "")
         editor.putString("atitude", "")
+        editor.putString("kodeKeamanan", "")
         editor.apply()
     }
 

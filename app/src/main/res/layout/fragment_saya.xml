@@ -5,6 +5,7 @@
     android:background="@color/grayBox"
     android:layout_marginBottom="50dp">
     <RelativeLayout
+
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:background="@color/warnaPutih">
@@ -25,7 +26,10 @@
         android:background="@color/warnaPutih"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp">
+        android:paddingTop="8dp"
+        android:paddingRight="8dp"
+        android:paddingLeft="8dp"
+        android:paddingBottom="15dp">
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/fotoUser"
             android:layout_width="60dp"
@@ -62,12 +66,18 @@
             android:layout_height="30dp"
             android:src="@drawable/ic_navigate_next_black_24dp"/>
     </RelativeLayout>
+    <TextView
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/grayBox"
+        android:textSize="16sp"
+        android:text="Device"/>
     <RelativeLayout
         android:focusable="true"
         android:clickable="true"
         android:foreground="?attr/selectableItemBackground"
         android:id="@+id/editDevice"
-        android:layout_marginTop="18dp"
         android:padding="10dp"
         android:background="@color/warnaPutih"
         android:layout_width="match_parent"
@@ -91,8 +101,7 @@
         android:focusable="true"
         android:clickable="true"
         android:foreground="?attr/selectableItemBackground"
-        android:id="@+id/pengaturan"
-        android:layout_marginTop="18dp"
+        android:id="@+id/tambahDevice"
         android:padding="10dp"
         android:background="@color/warnaPutih"
         android:layout_width="match_parent"
@@ -101,7 +110,7 @@
             android:layout_centerVertical="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pengaturan"
+            android:text="Tambah Device"
             android:textSize="18sp"
             android:textColor="@color/warnaHitam"/>
         <ImageView
@@ -111,18 +120,53 @@
             android:layout_alignParentRight="true"
             />
     </RelativeLayout>
+    <TextView
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/grayBox"
+        android:textSize="16sp"
+        android:text="Keamanan"/>
     <RelativeLayout
         android:focusable="true"
         android:clickable="true"
         android:foreground="?attr/selectableItemBackground"
-        android:id="@+id/tentang"
-        android:layout_marginTop="18dp"
+        android:id="@+id/pengaturan"
         android:padding="10dp"
         android:background="@color/warnaPutih"
         android:layout_width="match_parent"
         android:layout_height="55dp">
         <TextView
-
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pengaturan Kode Keamanan"
+            android:textSize="18sp"
+            android:textColor="@color/warnaHitam"/>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_navigate_next_black_24dp"
+            android:layout_alignParentRight="true"
+            />
+    </RelativeLayout>
+    <TextView
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/grayBox"
+        android:textSize="16sp"
+        android:text="Tentang"/>
+    <RelativeLayout
+        android:focusable="true"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:id="@+id/tentang"
+        android:padding="10dp"
+        android:background="@color/warnaPutih"
+        android:layout_width="match_parent"
+        android:layout_height="55dp">
+        <TextView
             android:layout_centerVertical="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -136,7 +180,12 @@
             android:layout_alignParentRight="true"
             />
     </RelativeLayout>
-
+    <TextView
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="version 1.0.0"/>
     <Button
         android:id="@+id/btn_logout"
         android:layout_marginTop="25dp"

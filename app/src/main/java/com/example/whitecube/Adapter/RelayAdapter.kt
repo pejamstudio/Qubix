@@ -37,11 +37,13 @@ class RelayAdapter(val context: Context, val List : ArrayList<RelayList>) :
     inner class Holder(view: View?) : RecyclerView.ViewHolder(view!!),
         View.OnClickListener {
 
+        val labelSwitchOrRemote: ImageView
         val jenisRelay: ImageView
         val namaRelay: TextView
         val tempatRelay: TextView
 
         init {
+            labelSwitchOrRemote = view!!.findViewById(R.id.labelSwitchOrRemote) as ImageView
             jenisRelay = view!!.findViewById(R.id.gambarJenis) as ImageView
             namaRelay = view.findViewById(R.id.namaRelay) as TextView
             tempatRelay = view.findViewById(R.id.tempatRelay) as TextView
@@ -63,6 +65,17 @@ class RelayAdapter(val context: Context, val List : ArrayList<RelayList>) :
             }else{
                 jenisRelay.setImageResource(R.drawable.ic_add)
             }
+
+            if(list.relaymode == "1"){
+                if(list.status == "1"){
+                    labelSwitchOrRemote.setImageResource(R.drawable.ic_switch_nyala)
+                }else{
+                    labelSwitchOrRemote.setImageResource(R.drawable.ic_switch_mati)
+                }
+            }else{
+                labelSwitchOrRemote.setImageResource(R.drawable.ic_settings_remote_black_24dp)
+            }
+
             namaRelay.setText(list.namarelay)
             tempatRelay.setText(list.tempatrelay)
 

@@ -13,7 +13,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Relay.ReadIrRemote"></activity>
+        <activity android:name=".Keamanan.EditKodeKeamanan2"></activity>
+        <activity android:name=".Keamanan.EditKodeKeamanan" />
+        <activity android:name=".ProfilActivity" />
+        <activity android:name=".LoginRegister.RegisterUserKode2" />
+        <activity android:name=".Relay.ReadIrRemote" />
         <activity android:name=".Relay.AddRelay" />
         <activity android:name=".Relay.EditRelay" />
         <activity android:name=".Relay.DetailRelay" />
@@ -24,15 +28,15 @@
         <activity android:name=".PengaturanDevice.PengaturanDevice" />
         <activity android:name=".EditProfil.EditNama" />
         <activity android:name=".EditProfil.EditProfil" />
-        <activity android:name=".RegisterUser" />
+        <activity android:name=".LoginRegister.RegisterUser" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".UniquePassword" />
+        <activity android:name=".LoginRegister.RegisterUserKode" />
         <activity android:name=".CameraScan" />
         <activity android:name=".QRGenerator" />
         <activity android:name=".QRscanner" />
         <activity android:name=".MenuQRCode" />
-        <activity android:name=".ProfilActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".Keamanan.KodeKeamanan" />
+        <activity android:name=".LoginRegister.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

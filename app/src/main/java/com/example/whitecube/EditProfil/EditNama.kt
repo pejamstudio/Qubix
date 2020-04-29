@@ -40,7 +40,7 @@ class EditNama : AppCompatActivity() {
     }
 
     private fun editNama(){
-        val user = UserModel(SP.getString("id","").toString(),nama.text.toString(),SP.getString("email","").toString())
+        val user = UserModel(SP.getString("id","").toString(),nama.text.toString(),SP.getString("email","").toString(),SP.getString("kodeKeamanan","").toString())
         val editor = SP.edit()
         editor.putString("nama",nama.text.toString())
         editor.apply()
@@ -48,4 +48,6 @@ class EditNama : AppCompatActivity() {
             this.finish()
         }
     }
+
+
 }

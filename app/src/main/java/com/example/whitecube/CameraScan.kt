@@ -159,6 +159,7 @@ class CameraScan : AppCompatActivity() {
                 }else{
                     Toast.makeText(applicationContext,"Device tidak terdaftar di Qubix", Toast.LENGTH_LONG).show()
                     finish()
+                    startActivity(Intent(applicationContext,MainActivity::class.java))
                 }
             }
 
@@ -185,14 +186,29 @@ class CameraScan : AppCompatActivity() {
         val user = ModeUserModel(modeId,SP.getString("id","").toString(),qrcode,mode)
 
         refmode.child(modeId).setValue(user).addOnCompleteListener {
-            if(mode == "1"){
-                finish()
-                startActivity(Intent(this,PengaturanDevice::class.java))
-            }else{
-                finish()
+
+            val backgrond = object : Thread(){
+                override fun run() {
+                    try {
+                        java.lang.Thread.sleep(500)
+                        //tambah loading
+                        startActivity(Intent(applicationContext,MainActivity::class.java))
+                        finish()
+                    } catch (e: Exception){
+                        e.printStackTrace()
+                    }
+                }
             }
+            backgrond.start()
+
             Toast.makeText(applicationContext,"Device berhasil ditambahkan", Toast.LENGTH_LONG).show()
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        startActivity(Intent(this,MainActivity::class.java))
+        finish()
     }
 
     private val processor = object : Detector.Processor<Barcode>{

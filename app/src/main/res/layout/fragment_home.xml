@@ -13,8 +13,17 @@
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:background="@color/warnaPutih">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/fotoUser"
+            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_add"
+            />
         <TextView
             android:id="@+id/namaDevice"
+            android:visibility="gone"
             android:layout_marginLeft="10dp"
             android:gravity="center_vertical"
             android:layout_width="wrap_content"
@@ -34,50 +43,173 @@
             android:layout_alignParentRight="true"/>
     </RelativeLayout>
     <RelativeLayout
+        android:visibility="gone"
+        android:gravity="center"
+        android:id="@+id/deviceTidakAda"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@color/unguPrimary"
-        >
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_centerHorizontal="true"
+            android:id="@+id/logo"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:src="@drawable/ic_add"
+            />
         <TextView
-            android:id="@+id/suhu"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="25*"
+            android:layout_marginTop="15dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/logo"
+            android:textSize="22sp"
             android:textColor="@color/warnaHitam"
-            android:textSize="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Klik Untuk Tambahkan Device"
             />
     </RelativeLayout>
-    <LinearLayout
-        android:orientation="vertical"
+    <ScrollView
+        android:visibility="visible"
+        android:id="@+id/deviceAda"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-        <RelativeLayout
-            android:layout_marginBottom="5dp"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/warnaPutih">
-            <TextView
-                android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:id="@+id/lokasiAda"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@color/grayBox"
+                >
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_marginTop="25dp"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/suhu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="25 °C"
+                        android:textColor="@color/warnaHitam"
+                        android:textSize="20dp"
+                        />
+                    <TextView
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/suhu"
+                        android:id="@+id/labelSuhu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Suhu Udara"
+                        android:textColor="@color/warnaHitam"
+                        android:textSize="14sp"
+                        />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_marginTop="25dp"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/kelembapan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="66.0 %"
+                        android:textColor="@color/warnaHitam"
+                        android:textSize="20dp"
+                        />
+                    <TextView
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/kelembapan"
+                        android:id="@+id/labelKelembapan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kelembapan"
+                        android:textColor="@color/warnaHitam"
+                        android:textSize="14sp"
+                        />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_marginTop="25dp"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/tekanan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1008.4 hPa"
+                        android:textColor="@color/warnaHitam"
+                        android:textSize="20dp"
+                        />
+                    <TextView
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/tekanan"
+                        android:id="@+id/labelTekanan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tekanan"
+                        android:textColor="@color/warnaHitam"
+                        android:textSize="14sp"
+                        />
+                </RelativeLayout>
+
+            </LinearLayout>
+            <RelativeLayout
+                android:id="@+id/lokasiTidakAda"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@color/grayGaris"
+                >
+                <TextView
+                    android:id="@+id/textLokasi"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Atur lokasi untuk melihat suhu sekitar"
+                    android:textColor="@color/grayText"
+                    android:textSize="17sp"
+                    android:drawableLeft="@drawable/ic_location_on_black_24dp"
+                    />
+            </RelativeLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Perangkat Listrik"
-                android:textColor="@color/warnaHitam"
-                android:padding="10dp"
-                android:textSize="18sp"/>
-            <ImageView
-                android:id="@+id/tambahPerangkat"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/ic_add"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"/>
-        </RelativeLayout>
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvRelay"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
+                >
+                <RelativeLayout
+                    android:layout_marginBottom="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/warnaPutih">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Perangkat Listrik"
+                        android:textColor="@color/warnaHitam"
+                        android:padding="10dp"
+                        android:textSize="18sp"/>
+                    <ImageView
+                        android:id="@+id/tambahPerangkat"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_add"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"/>
+                </RelativeLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvRelay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
 
 </LinearLayout>
