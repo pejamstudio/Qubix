@@ -93,6 +93,7 @@ class GantiDevice : AppCompatActivity(),OnItemClickListener {
                     }
                     firebaseCallback.onCallback(devices)
 
+
                 }
             }
         })
